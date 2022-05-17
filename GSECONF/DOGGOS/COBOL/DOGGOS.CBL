@@ -59,8 +59,11 @@
            05 JINGO-INDEX.                                                      
                10 JINGO-INDEX-VALUE PIC 9(1) VALUE 8.                           
                10 JINGO-BREED-NAME PIC X(5) VALUE 'JINGO'.                      
+           05 BASSETS-INDEX.                              
+               10 BASSETS-INDEX-VALUE PIC 9(1) VALUE 9.              
+               10 BASSETS-BREED-NAME PIC X(7) VALUE 'BASSETS'.
            05 OTHER-INDEX.                                                      
-               10 OTHER-INDEX-VALUE  PIC 9(1) VALUE 9.                          
+               10 OTHER-INDEX-VALUE  PIC 9(2) VALUE 10.            
                10 OTHER-BREED-NAME PIC X(5) VALUE 'OTHER'.                      
       * INTERNAL DATA STRUCTURE TO KEEP                                         
       * THE AMOUNT OF ADOPTIONS PER BREED                                       
@@ -136,8 +139,13 @@
            MOVE JINGO-BREED-NAME TO DOG-BREED.                                  
            MOVE BREED-ADOPTIONS(JINGO-INDEX-VALUE) TO ADOPTED-AMOUNT.           
            MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.                           
-           PERFORM WRITE-ADOPTION-BREED-REPORT.                                 
-                                                                                
+           PERFORM WRITE-ADOPTION-BREED-REPORT.  
+
+           MOVE BASSETS-BREED-NAME TO DOG-BREED.
+           MOVE BREED-ADOPTIONS(BASSETS-INDEX-VALUE) TO ADOPTED-AMOUNT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
+
            MOVE OTHER-BREED-NAME TO DOG-BREED.                                  
            MOVE BREED-ADOPTIONS(OTHER-INDEX-VALUE) TO ADOPTED-AMOUNT.           
            MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.                           
@@ -204,7 +212,10 @@
                     TO BREED-ADOPTIONS(BULDOG-INDEX-VALUE)                      
                 WHEN JINGO-BREED-NAME                                           
                 ADD INP-ADOPTED-AMOUNT                                          
-                    TO BREED-ADOPTIONS(JINGO-INDEX-VALUE)                       
+                    TO BREED-ADOPTIONS(JINGO-INDEX-VALUE)    
+                WHEN BASSETS-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT 
+                     TO BREED-ADOPTIONS(BASSETS-INDEX-VALUE)
                 WHEN OTHER                                                      
                 ADD INP-ADOPTED-AMOUNT                                          
                     TO BREED-ADOPTIONS(OTHER-INDEX-VALUE)                       
