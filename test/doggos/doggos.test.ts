@@ -64,4 +64,9 @@ describe("Doggos Batch Application - Regression Test Suite", function () {
     const adoptionAmount = TestHelper.getAdoptionAmount(records, "JINGO");
     expect(adoptionAmount).toBe(6);
   });
+
+  test("Test for BASSETS breed", () => {
+    const adoptionAmount = TestHelper.getAdoptionAmount(records, "BASSETS");
+    expect(adoptionAmount).toBe(9);
+  });
 });
