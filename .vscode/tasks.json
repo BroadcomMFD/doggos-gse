@@ -37,7 +37,11 @@
       "command": [
         "zowe",
         "endevor-bridge-for-git build execute",
-        "--endevor-profile sample-gse-profile",
+        "--endevor-profile endevor",
+        "--endevor-host 172.29.11.9",
+        "--endevor-port 40050",
+        "--endevor-user ${input:user_name}",
+        "--endevor-password ${input:user_name}",
         "--endevor-instance ENDEVOR",
         "--endevor-environment SMPLTEST",
         "--endevor-system GSECONF",

@@ -1,39 +1,55 @@
 {
-  "$schema": "./zowe.schema.json",
-  "profiles": {
-    "lpar1": {
-      "properties": {
-        "host": ""
-      },
-      "profiles": {
-        "zosmf": {
-          "type": "zosmf",
-          "properties": {
-            "port": 1443,
-            "host": "35.245.180.49",
-            "protocol": "https",
-            "rejectUnauthorized": false
-          }
-        },
-        "test4z": {
-          "type": "test4z",
-          "properties": {
-            "host": "35.245.180.49",
-            "protocol": "https",
-            "type": "basic",
-            "port": 6016,
-            "basePath": "/api/v1/test4z",
-            "strictSSL": false,
-            "hlq": "",
-            "rejectUnauthorized": false
-          }
+    "$schema": "./zowe.schema.json",
+    "profiles": {
+        "lpar1": {
+            "properties": {
+                "host": ""
+            },
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 1443,
+                        "host": "172.29.11.9",
+                        "protocol": "https",
+                        "rejectUnauthorized": false,
+                        "user": "CRLC##",
+                        "password": "CRLC##"
+                    }
+                },
+                "endevor": {
+                    "type": "endevor",
+                    "properties": {
+                        "port": 40050,
+                        "host": "172.29.11.9",
+                        "protocol": "http",
+                        "rejectUnauthorized": false,
+                        "basePath": "EndevorService/api/v2",
+                        "user": "CRLC##",
+                        "password": "CRLC##"
+                    }
+                },
+                "test4z": {
+                    "type": "test4z",
+                    "properties": {
+                        "host": "172.29.11.9",
+                        "protocol": "https",
+                        "type": "basic",
+                        "port": 6016,
+                        "basePath": "/api/v1/test4z",
+                        "strictSSL": false,
+                        "hlq": "CRLC##",
+                        "rejectUnauthorized": false,
+                        "user": "CRLC##",
+                        "password": "CRLC##"
+                    }
+                }
+            }
         }
-      }
-    }
-  },
-  "defaults": {
-    "zosmf": "lpar1.zosmf",
-    "test4z": "lpar1.test4z"
-  },
-  "plugins": []
+    },
+    "defaults": {
+        "zosmf": "lpar1.zosmf",
+        "test4z": "lpar1.test4z"
+    },
+    "plugins": []
 }
