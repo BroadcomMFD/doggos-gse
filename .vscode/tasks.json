@@ -40,12 +40,12 @@
         "--endevor-profile endevor",
         "--endevor-host 172.29.11.9",
         "--endevor-port 40050",
-        "--endevor-user ${input:user_name}",
-        "--endevor-password ${input:user_name}",
+        "--endevor-user TESTID##",
+        "--endevor-password TESTID##",
         "--endevor-instance ENDEVOR",
         "--endevor-environment SMPLTEST",
         "--endevor-system GSECONF",
-        "--endevor-subsystem ${input:user_name}"
+        "--endevor-subsystem TESTID##"
       ],
       "problemMatcher": [
         // it will not do anything, but save the participants from another quickpick :)
@@ -74,7 +74,9 @@
     {
       "label": "DOGGOS: configure",
       "type": "shell",
-      "command": "sh scripts/configure.sh ${input:user_name}",
+      // "command": "sh scripts/configure.sh ${input:user_name}",
+      "command": ["sed -i -e 's/TESTID##/${input:user_name}/g' zowe.config.json &&",
+                  "sed -i -e 's/TESTID##/${input:user_name}/g' .vscode/tasks.json"],
       "problemMatcher": [
         // it will not do anything, but save the participants from another quickpick :)
         "$tsc"
