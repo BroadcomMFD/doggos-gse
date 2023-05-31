@@ -24,11 +24,11 @@ zowe files delete data-set "$USERN.PUBLIC.JCL" -f
 zowe files delete data-set "$USERN.PUBLIC.INPUT" -f
 
 # # Remove artifacts
-# zowe files delete data-set "$USERN.DOGGOS.COPYBOOK" -f
-# zowe files delete data-set "$USERN.PUBLIC.LOADLIB" -f
-# zowe files delete data-set "$USERN.PUBLIC.PROFLIB" -f
+zowe files delete data-set "$USERN.DOGGOS.COPYBOOK" -f
+zowe files delete data-set "$USERN.PUBLIC.LOADLIB" -f
+zowe files delete data-set "$USERN.PUBLIC.PROFLIB" -f
 
-# zowe files delete data-set "$USERN.PUBLIC.PROTSYM" -f
+zowe files delete data-set-vsam "$USERN.PUBLIC.PROTSYM" -f
 # zowe files delete data-set "$USERN.PUBLIC.PROTSYM.DATA" -f
 
 zowe files cre pds "$USERN.PUBLIC.JCL"
