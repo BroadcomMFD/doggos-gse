@@ -58,7 +58,10 @@
                10 BULDOG-BREED-NAME PIC X(6) VALUE 'BULDOG'.                    
            05 JINGO-INDEX.                                                      
                10 JINGO-INDEX-VALUE PIC 9(1) VALUE 8.                           
-               10 JINGO-BREED-NAME PIC X(5) VALUE 'JINGO'.                      
+               10 JINGO-BREED-NAME PIC X(5) VALUE 'JINGO'.       
+           05 SHEPPARD-INDEX.                                                   
+               10 SHEPPARD-INDEX-VALUE PIC 9(1) VALUE 8.                        
+               10 SHEPPARD-BREED-NAME PIC X(5) VALUE 'SHEPPARD'.               
            05 OTHER-INDEX.                                                      
                10 OTHER-INDEX-VALUE  PIC 9(1) VALUE 9.                          
                10 OTHER-BREED-NAME PIC X(5) VALUE 'OTHER'.                      
@@ -136,7 +139,12 @@
            MOVE JINGO-BREED-NAME TO DOG-BREED.                                  
            MOVE BREED-ADOPTIONS(JINGO-INDEX-VALUE) TO ADOPTED-AMOUNT.           
            MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.                           
-           PERFORM WRITE-ADOPTION-BREED-REPORT.                                 
+           PERFORM WRITE-ADOPTION-BREED-REPORT.              
+
+           MOVE SHEPPARD-BREED-NAME TO DOG-BREED.                               
+           MOVE BREED-ADOPTIONS(SHEPPARD-INDEX-VALUE) TO ADOPTED-AMOUNT.        
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.                           
+           PERFORM WRITE-ADOPTION-BREED-REPORT.                       
                                                                                 
            MOVE OTHER-BREED-NAME TO DOG-BREED.                                  
            MOVE BREED-ADOPTIONS(OTHER-INDEX-VALUE) TO ADOPTED-AMOUNT.           
